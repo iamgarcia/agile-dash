@@ -1,0 +1,3 @@
+# Client
+dash>=2.7.0
+dash-bootstrap-components>=1.2.1
