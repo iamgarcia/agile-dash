@@ -1,11 +1,11 @@
-from dash import Dash, html, Input, Output, State
+from dash import dcc, Dash, html, Input, Output, State
 import dash
 import dash_bootstrap_components as dbc
 
 
 app = Dash(__name__,
-                use_pages=True,
-                external_stylesheets=[dbc.themes.BOOTSTRAP])
+           use_pages=True,
+           external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Branding component
 brand = html.Div(
@@ -92,7 +92,11 @@ navbar = dbc.Navbar(
 
 # Main application layout
 app.layout = html.Div(
-    [navbar, dash.page_container]
+    [
+        navbar,
+        dash.page_container,
+        dcc.Store(id='session_data', storage_type='session'),
+    ]
 )
 
 
